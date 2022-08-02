@@ -1,0 +1,103 @@
+{
+  "env": {
+    "browser": true,
+    "node": true,
+    "jest": true
+  },
+  "extends": [
+    // "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2019,
+    "sourceType": "module",
+    "project": "tsconfig.eslint.json"
+  },
+  "plugins": ["@typescript-eslint", "unused-imports", "prettier"],
+  "rules": {
+    // Enable prettier errors as eslint errors
+    "prettier/prettier": "error",
+
+    //
+    // Errors that can affect code
+    "no-duplicate-imports": "off",
+    "@typescript-eslint/no-duplicate-imports": ["error"],
+
+    // Turns off single line if statements without braces
+    "curly": ["error", "all"],
+
+    // Prettier doesn't transform backtick: `` quotes
+    "quotes": "off",
+    "@typescript-eslint/quotes": ["warn", "backtick"],
+
+    //
+    // Code format options that should work with prettier
+    "spaced-comment": ["warn", "always"],
+    "func-call-spacing": ["warn", "never"],
+    "max-len": [
+      "error",
+      {
+        "code": 200,
+        "comments": 160,
+        // Allow long import lines
+        "ignorePattern": "^import .*"
+      }
+    ],
+
+    //
+    // Code style options (not checked by prettier)
+    "@typescript-eslint/no-empty-function": "warn",
+    "@typescript-eslint/explicit-function-return-type": ["error"],
+    "@typescript-eslint/no-require-imports": "error",
+    "@typescript-eslint/no-var-requires": "error",
+    "@typescript-eslint/consistent-type-definitions": ["warn", "interface"],
+    "@typescript-eslint/no-misused-new": "warn",
+    "@typescript-eslint/prefer-for-of": "warn",
+    "@typescript-eslint/no-empty-interface": "warn",
+
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": "off",
+    "unused-imports/no-unused-imports": "error",
+    "unused-imports/no-unused-vars": [
+      "error",
+      {
+        "vars": "all",
+        "args": "after-used",
+        // Allows a _name variable to be unused (e.g. for TypeOrm)
+        "varsIgnorePattern": "^_\\w*",
+        "argsIgnorePattern": "^_\\w*"
+      }
+    ],
+
+    "require-jsdoc": [
+      "error",
+      {
+        "require": {
+          "FunctionDeclaration": true,
+          "MethodDefinition": false,
+          "ClassDeclaration": false,
+          "ArrowFunctionExpression": false,
+          "FunctionExpression": false
+        }
+      }
+    ],
+    "valid-jsdoc": [
+      "error",
+      {
+        "requireReturnDescription": true,
+        "requireParamDescription": true,
+        "requireReturnType": false,
+        "requireParamType": false
+      }
+    ],
+
+    //
+    // Disabled rules
+    "no-inner-declarations": "off",
+    "space-before-function-paren": "off",
+    "@typescript-eslint/space-before-function-paren": "off",
+    "@typescript-eslint/no-namespace": "off"
+  }
+}
