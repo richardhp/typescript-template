@@ -1,9 +1,9 @@
 {
-  "name": "typeql",
+  "name": "typescript-template",
   "version": "1.0.0",
-  "description": "Typescript GraphQL Implementation",
+  "description": "Typescript Template",
   "main": "index.ts",
-  "author": "Gembot.ai",
+  "author": "Richard Howell-Peak",
   "license": "ISC",
   "scripts": {
     "test": "jest --roots=\"tests\" --runInBand --coverage",
